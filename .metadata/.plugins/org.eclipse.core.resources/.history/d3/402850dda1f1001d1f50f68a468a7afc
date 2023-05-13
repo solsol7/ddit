@@ -161,11 +161,11 @@ class Homework {
 				while(i<=num/10) {
 					i=i*10;
 					}
-				int a=num/i;   //a:¸ò
-				sum=sum+a;		//¸ò ´õÇÏ±â
-				num=num-a*i;	//¿ø·¡¼ö - ¸ò*ÀÚ¸´¼ö
+				int a=num/i;
+				sum=sum+a;
+				num=num-sum*i;
 			}
-			System.out.println(sum);
+			System.out.println(num);
 			}
 	
 	
