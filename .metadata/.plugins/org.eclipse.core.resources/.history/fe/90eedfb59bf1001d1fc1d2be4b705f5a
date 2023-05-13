@@ -6,7 +6,7 @@ public class ForHomework02 {
 
 	public static void main(String[] args) {
 		Homework sc=new Homework();
-		sc.Homework01();
+		sc.Homework05();
 
 	}
 
@@ -25,10 +25,10 @@ class Homework {
 		Scanner sc=new Scanner(System.in);
 		int coin = sc.nextInt();
 		int result=0;
-		for(a=1; a<=coin/100; a++) {
+		for(a=0; a<=coin/100; a++) {
 			result=100*a;
 			System.out.println("100원짜리 동전이"+a+"개일 때");
-			for(b=1; b<=(coin-result)/50; b++) {
+			for(b=0; b<=(coin-result)/50; b++) {
 				result=result+50*b;
 				c=(coin-(100*a+b*50))/10;
 				System.out.printf("100원 : %d개, 50원 : %d개, 10원 : %d개\n",a,b,c);
