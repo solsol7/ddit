@@ -23,8 +23,7 @@ class SortAlgorithm{
 		for(int i=0; i<target.length-1; i++) { //각 회전
 			flag=false;
 			cnt++;
-			for(int j=0; j<target.length-1-i; j++) { //한 행에서 숫자비교 
-													 //1회전 끝나면 마지막숫자 하나씩 빼고 자리교환하기 때문에 i뺌
+			for(int j=0; j<target.length-1-i; j++) { //한 행에서 숫자비교  //1회전 끝나면 마지막숫자 하나씩 빼고 자리교환하기 때문에 i뺌
 				if(target[j]>target[j+1]) {
 					int temp=target[j];
 					target[j]=target[j+1];

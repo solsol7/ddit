@@ -2,7 +2,7 @@ package user;
 
 import java.util.Scanner;
 
-public class Sol {
+public class sol {
 
 	public static void main(String[] args) {
 		ex5();

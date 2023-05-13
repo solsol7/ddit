@@ -16,8 +16,7 @@ public class OneDimArrayExample02 {
 
 class OneDimArray02{
 	Scanner sc=new Scanner(System.in);
-	String[] name = new String[5];    //배열이 만들어지려면 new 쓰거나 초기화해줘야함 
-								//문자열이 저장되는 공간이 name이 아니라 name은 주소값 저장됨. 주소값 따라가면 저장된 배열 나옴
+	String[] name = new String[5];    //배열이 만들어지려면 new 쓰거나 초기화해줘야함  문자열이 저장되는 공간에 name이 아니라 name은 주소값 저장됨. 주소값 따라가면 저장된 배열 나옴
 										//name ->멤버변수
 	public void setName() { //자기 클래스이기 때문에 ()안에 name 안적어도 가져다쓸 수 있음
 		for(int i=0; i<name.length; i++) {
@@ -26,8 +25,7 @@ class OneDimArray02{
 		}
 	}
 	
-	public void getName() {//여기서 출력하고 끝날거면 void-반환타입 없음,  처리하고 값을 되돌려 받아야하면 반환타입 있어야함
-							//배열반환은 어려워서 나중에,지금은  반환 없는 타입으로 구성
+	public void getName() {//여기서 출력하고 끝날거면 void-반환타입 없음,  처리하고 값을 되돌려 받아야하면 반환타입 있어야함//배열반환 어려워서 없는 타입으로 구성
 		for(int i=name.length-1; i>=0; i--) {
 		//	for(int i=0; i<name.length; i++) {				//위랑 똑같은 코드
 		//		System.out.println(name[(name.length-1)-i]);
