@@ -2,10 +2,10 @@ package user;
 
 import java.util.Scanner;
 
-public class sol {
+public class Sol {
 
 	public static void main(String[] args) {
-		ex5();
+		ex9();
 	}
 	public static void ex1(){
 		int x=5;
@@ -103,6 +103,46 @@ public class sol {
     		}
     	}
     	System.out.println(al);
+    	
+    	}
+    
+	public static void ex7() {  //이건 이해됨
+		boolean a=false;
+		int b=0;
+		while(a==false) {
+			b=b+2;
+			if(b==32) {
+				a=true;   //
+			}
+		}
+		System.out.println(b);
+    }
+	
+	public static void ex8() {  //이해 됨
+		boolean a=false;
+		int b=0;
+		while(a!=true) {
+			b=b+2;
+			if(b==32) {
+				a=true;   //
+			}
+		}
+		System.out.println(b);
+    }
+	
+	public static void ex9() {  //이건 이해 안됨
+		boolean a=false;
+		int b=0;
+		while(a!=false) {    //괄호 안이 true,  a가 아닐때 반복->true일때 반복을 한다?? !a가 a!=false랑 다른거?
+			b=b+2;
+			if(b==32) {
+				a=true;   // a는 true인데 왜 멈춤?
+			}
+		}
+		System.out.println(b);
     }
 }
 
+
+// 이은솔 메렁
+// 메렁메렁

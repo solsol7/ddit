@@ -2,10 +2,10 @@ package user;
 
 import java.util.Scanner;
 
-public class sol {
+public class Sol {
 
 	public static void main(String[] args) {
-		ex5();
+		ex7();
 	}
 	public static void ex1(){
 		int x=5;
@@ -103,8 +103,22 @@ public class sol {
     		}
     	}
     	System.out.println(al);
+    	
+    	}
+    
+	public static void ex7() {
+		boolean a=false;
+		int b=1;
+		while(!a) {
+			b=b+2;
+			if(b==32) {
+				a=false;   //??
+			}
+		}
+		System.out.println(b);
     }
 }
 
-// ¿Ã¿∫º÷ ∏ﬁ∑∑
 
+// ¿Ã¿∫º÷ ∏ﬁ∑∑
+// ∏ﬁ∑∑∏ﬁ∑∑

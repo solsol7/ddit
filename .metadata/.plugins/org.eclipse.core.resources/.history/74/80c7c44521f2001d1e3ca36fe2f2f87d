@@ -2,12 +2,20 @@ package user;
 
 import java.util.Scanner;
 
-public class sol {
+public class Sol {
 
 	public static void main(String[] args) {
-		ex5();
+		SolSol sl=new SolSol();
+		sl.ex12();
 	}
-	public static void ex1(){
+	}
+
+ class SolSol {
+	Scanner sc=new Scanner(System.in);
+	public void main(String[] args) {
+		ex9();
+	}
+	public void ex1(){
 		int x=5;
 		int y=2;
 		double result=(double)x/(double)y;
@@ -15,13 +23,13 @@ public class sol {
 
 	}
 	
-	public static void ex2() {
+	public void ex2() {
 		double var1=3.5;
 		double var2=2.7;
 		int result=(int)(var1+var2);
 		System.out.println(result);
 	}
-    public static void ex3() {
+    public void ex3() {
 	int answer = 0;
     String str;
     String[] order = {"1","2","3","4","6","8"};
@@ -37,7 +45,7 @@ public class sol {
     	}
     }
     
-    public static void ex4() {
+    public void ex4() {
     	System.out.println("문자 입력 : ");
     	Scanner sc=new Scanner(System.in);
     	String word=sc.nextLine();
@@ -80,7 +88,7 @@ public class sol {
     }
     
     
-    public static void ex5() {
+    public void ex5() {
     	Scanner sc = new Scanner(System.in);
     	String my_string=sc.nextLine();
         int[] answer = new int[52];
@@ -93,7 +101,7 @@ public class sol {
     	}
 }
     
-    public static void ex6() {
+    public void ex6() {
     	
     	char[] al=new char[26];
     	al[0]='A';
@@ -103,8 +111,85 @@ public class sol {
     		}
     	}
     	System.out.println(al);
+    	
+    	}
+    
+	public void ex7() {  //이건 이해됨
+		boolean a=false;
+		int b=0;
+		while(a==false) {
+			b=b+2;
+			if(b==32) {
+				a=true;   //
+			}
+		}
+		System.out.println(b);
     }
-}
+	
+	public void ex8() {  //이해 됨
+		boolean a=false;
+		int b=0;
+		while(a!=true) {
+			b=b+2;
+			if(b==32) {
+				a=true;   //
+			}
+		}
+		System.out.println(b);
+    }
+	
+	public void ex9() {  //이건 이해 안됨
+		boolean a=false;
+		int b=0;
+		while(!a) {    //괄호 안이 true,  a가 아닐때 반복->true일때 반복을 한다?? !a가 a!=false랑 다른거?
+			b=b+2;
+			if(b==32) {
+				a=!false;   // a는 true인데 왜 멈춤?
+			}
+		}
+		System.out.println(b);
+    }
+	
+	public void ex10() {						//수를 입력받아 2의 거듭제곱인지 여부 구하기
+		System.out.print("숫자를 입력하세요 : ");
+		double number=sc.nextDouble();
+		if(number==1) {
+			System.out.println("2의 거듭제곱이 아닙니다.");
+		}else {
+/*		double i=0;
+		do {
+			i=number/2.0;
+		}while(i>1);			*/
+		if(number==1.0) {
+			System.out.println("2의 거듭제곱입니다.");
+		}else {
+			System.out.println("2의 거듭제곱이 아닙니다.");
+			}
+		}
+	}
+	
+		public void ex11() {
+			System.out.print("숫자를 입력하세요 : ");
+			double number=sc.nextDouble();
+			if(number==1) {
+				System.out.println("2의 거듭제곱이 아닙니다.");
+			}else {
+/*				while(number>1) {
+				number=number/2.0;
+				}							*/
+				if(number==1.0) {
+					System.out.println("2의 거듭제곱입니다.");
+				}else {
+					System.out.println("2의 거듭제곱이 아닙니다.");
+				}
+			}
+		
+    }
+
+		
+ }
+
 
 
 // 이은솔 메렁
+// 메렁메렁
