@@ -6,7 +6,7 @@ public class Sol {
 
 	public static void main(String[] args) {
 		SolSol sl=new SolSol();
-		sl.ex11();
+		sl.ex10();
 	}
 	}
 
@@ -149,15 +149,17 @@ public class Sol {
 		}
 		System.out.println(b);
     }
-	
+
+
 	public void ex10() {						//수를 입력받아 2의 거듭제곱인지 여부 구하기
 		System.out.print("숫자를 입력하세요 : ");
 		double number=sc.nextDouble();
-/*		double i=0;
+		double i=0;
+/* 		i=number/2.0;
 		do {
-			i=number/2.0;
+			i=i/2.0;
 		}while(i>1);			*/
-		if(number==1.0) {
+		if(i==1.0) {
 			System.out.println("2의 거듭제곱입니다.");
 		}else {
 			System.out.println("2의 거듭제곱이 아닙니다.");
@@ -178,9 +180,5 @@ public class Sol {
 				}
 			}
 		
-    
-
-		
  }
-
 

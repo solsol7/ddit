@@ -25,7 +25,7 @@ class Homework{
 				for(int j=1; j<=change/money[i]; j++) {					//맷수 카운팅
 					count[i]+=1;
 				}
-			change=change-(change/money[i]*money[i]);
+			change=change-(change/money[i]*money[i]);		//change%money[i];
 		}
 				for(int i=0; i<count.length; i++) {
 		System.out.println(money[i]+"원의 갯수는"+count[i]+"개");
