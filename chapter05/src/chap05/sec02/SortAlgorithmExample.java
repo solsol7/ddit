@@ -16,7 +16,6 @@ public class SortAlgorithmExample {
 
 class SortAlgorithm{
 
-	
 	public void bubbleSort(int[] target) {
 		boolean flag=false;  //개선된 버블정렬
 		int cnt=0;

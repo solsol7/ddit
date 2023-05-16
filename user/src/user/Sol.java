@@ -6,7 +6,7 @@ public class Sol {
 
 	public static void main(String[] args) {
 		SolSol sl=new SolSol();
-		sl.ex10();
+		sl.ex12();
 	}
 	}
 
@@ -180,5 +180,13 @@ public class Sol {
 				}
 			}
 		
+		public void ex12() {
+			int[] arr1= {10,20,30,40,50};
+			int[] arr2=arr1;
+			arr2[2]=1000;
+			System.out.println(arr1[2]);
+			System.arraycopy(src, srcPos, dest, destPos, length);
+		
+ }
  }
 

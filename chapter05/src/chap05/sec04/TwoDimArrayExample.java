@@ -132,22 +132,22 @@ class TwoDimArray{
 		
 		//등수 차례대로
 		
-		for(int i=0; i<score.length-1; i++) {
+		for(int i=0; i<score.length; i++) {
 			for(int j=0; j<score.length; j++){
 				if(score[i][score.length-1]>score[j][score.length-1]) {
 					int[] seq=score[i];
 					score[i]=score[j];
-					score[j]=score[i];
+					score[j]=seq;
 					
 					String na=name[i];
 					name[i]=name[j];
-					name[j]=name[i];
+					name[j]=na;
 				}
 
 			}
 
 		}
-		
+		printScore(score);
 		}
 	}
 
