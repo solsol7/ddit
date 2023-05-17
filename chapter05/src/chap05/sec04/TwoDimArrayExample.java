@@ -88,7 +88,7 @@ class TwoDimArray{
 		System.out.println("--------------------------------------------");
 		printScore(score);
 		}
-	
+
 
 	public void printScore(int[][]score) {
 		for(int i=0; i<score.length; i++) {  	 //행의 갯수가 5 -> 5보다 작을때까지 실행
@@ -102,8 +102,7 @@ class TwoDimArray{
 	}
 
 
-		
-	
+
 	public void sequence() {
 		int[][] score = {{70,80,60,0,0,1},{80,90,90,0,0,1},{90,80,90,0,0,1},{75,80,80,0,0,1},{60,70,60,0,0,1}};
 		//총점 및 평균

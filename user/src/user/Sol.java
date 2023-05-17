@@ -1,5 +1,7 @@
 package user;
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Sol {
@@ -179,14 +181,20 @@ public class Sol {
 					System.out.println("2의 거듭제곱이 아닙니다.");
 				}
 			}
-		
+
 		public void ex12() {
 			int[] arr1= {10,20,30,40,50};
 			int[] arr2=arr1;
 			arr2[2]=1000;
+			int[] arr3 =new int[5];
 			System.out.println(arr1[2]);
-			System.arraycopy(src, srcPos, dest, destPos, length);
-		
- }
- }
+			System.arraycopy(arr1, 0, arr3, 0, arr1.length);
+			System.out.println(Arrays.toString(arr3));
+			String[] str = {"가바","나루","다냐","라리","마보"};
+			String st=str[0];
+			char[] ch=st.toCharArray();
+			System.out.println(Arrays.toString(ch));
+			System.out.println(new String(ch));
+			}
+		}
 

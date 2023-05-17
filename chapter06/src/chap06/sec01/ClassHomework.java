@@ -9,18 +9,18 @@
 
 
 package chap06.sec01;
-/*
+
 public class ClassHomework {
 
 	public static void main(String[] args) {
-		Student st=new Student();
+		Student01 st=new Student01();
 		st.match();
 
 	}
 
 }
 
-class Student{
+class Student01{
 	private long[] stdNo= {1713030, 1713031, 1713032, 1713033, 1713034};
 	private String[] name= {"±è¿Õ¿Õ", "ÀÌ¿Õ¿Õ", "ÇÑ¿Õ¿Õ", "À¯¿Õ¿Õ", "¹Ú¿Õ¿Õ", "¿ø¿Õ¿Õ"};
 	
@@ -32,7 +32,7 @@ class Student{
 	}
 }
 
-*/
+
 
 
 
@@ -49,7 +49,7 @@ public class ClassHomework {
 
 
 
-class Employee{
+class Employee01{
 		private int[] empNo={1315,1316,1317,1318,1319};
 		private String[] empName={"±è¶¯¶¯","ÀÌ¶¯¶¯","ÇÑ¶¯¶¯","À¯¶¯¶¯","¹Ú¶¯¶¯"};
 		private String[] empTelNo={"010-4532-4381","010-1384-3541","010-1357-3651","010-4381-1318","010-4138-5472"};
@@ -67,7 +67,7 @@ class Employee{
 
 
 
-
+/*
 public class ClassHomework {
 
 	public static void main(String[] args) {
@@ -78,7 +78,7 @@ public class ClassHomework {
 
 }
 
-class Product{
+class Product01{
 	private int[] prdNo={10000,10001,10002,10003,10004};
 	private String[] prdName={"Å°º¸µå","ÀÌ¾îÆù","¸¶¿ì½º","¾Æ¹«°Å","À½·á¼ö"};
 	private String[] prdMaker={"»ï¶¯","¿¤¶¯","ÇÑ¶¯","À¯¶¯","±è¶¯"};
@@ -93,4 +93,4 @@ class Product{
 			}
 	}
 }
-
+*/
