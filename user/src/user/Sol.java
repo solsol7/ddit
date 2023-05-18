@@ -198,3 +198,37 @@ public class Sol {
 			}
 		}
 
+ 
+ 
+ 
+ 
+ class Student1{	
+		private long stdID;
+		private String stdName;	
+
+								
+		public Student1() {} 
+		public void setStdID(long stdID)  {						
+			this.stdID=stdID;							
+		}
+		public void setStdName(String stdName)  {				
+			this.stdName=stdName;					
+		}
+
+		public Student1(long stdID, String stdName) {
+			this.stdID=stdID;		
+			this.stdName=stdName;	
+		}
+
+		public void showInfo() { 
+			System.out.println("학번 : "+stdID);
+			System.out.println("이름 : "+stdName);
+		}
+
+		@Override
+		public String toString() { 
+			return "학번 : "+stdID+"이름 : \n"+stdName; 
+		}
+	}
+ 
+ 

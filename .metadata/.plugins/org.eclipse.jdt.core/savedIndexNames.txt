@@ -12,7 +12,6 @@ INDEX VERSION 1.131+D:\develop\ddit\.metadata\.plugins\org.eclipse.jdt.core
 2885606711.index
 411227453.index
 2844556553.index
-1199709221.index
 542153213.index
 1946725198.index
 895354549.index

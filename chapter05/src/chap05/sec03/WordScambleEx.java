@@ -34,7 +34,7 @@ class WordScamble{
 		char[] ch=str.toCharArray(); 	//toCharArray메소드 - 문자열을 문자배열로 바꿔줌
 		
 		for(int i=0; i<1000; i++) {
-			int r=(int)(Math.random()*ch.length);  //0<= <1 1보다 작기떼ㅐ문에 length에 -1 X
+			int r=(int)(Math.random()*ch.length);  //0<= <1 1보다 작기때문에 length에 -1 X
 			char temp=ch[0];
 			ch[0]=ch[r];
 			ch[r]=temp;    //반환타입 - 문자열(public String shuffle) , 섞인 단어의 타입 - 문자배열 타입	
@@ -42,7 +42,7 @@ class WordScamble{
 		}
 		return(new String(ch));  //매개변수 문자배열 가지고 문자열 생성해야함 -> 생성자메소드 부름
 								//ch의 값을 가진 string 객체 생성★★
-		
+
 	}
 
 	public void answer(String sss) {			//String question ->섞인 문자열 가지고와야함
