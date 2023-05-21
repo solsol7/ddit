@@ -35,7 +35,7 @@ class OneDimArray03{
 		int money=Integer.parseInt(sc.nextLine());
 		for(int i=1; i<=money/1000; i++) {
 			suffle();
-			System.out.printf("%2d : ",i);
+			System.out.printf("%2c ",(char)(i+64));
 			for(int j=0; j<6; j++) {
 				System.out.printf("%5d", lotto[j]);
 				

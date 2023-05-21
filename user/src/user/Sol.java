@@ -7,10 +7,35 @@ import java.util.Scanner;
 public class Sol {
 
 	public static void main(String[] args) {
-		SolSol sl=new SolSol();
-		sl.ex12();
+		System.out.println(method1(4,11));
 	}
+	
+	public static int method1(int a, int b) {
+		int result=a+b;
+		return result;
 	}
+	
+}
+
+
+
+
+
+
+
+class Varargs{
+		public void number(int ...a) {
+			for(int num : a) {
+				System.out.println(num);
+			}
+		}
+		
+		public void result() {
+			number(1,2,3,4,10);
+		}
+}
+
+
 
  class SolSol {
 	Scanner sc=new Scanner(System.in);
@@ -196,8 +221,12 @@ public class Sol {
 			System.out.println(Arrays.toString(ch));
 			System.out.println(new String(ch));
 			}
+		
+
 		}
 
+
+ 
  
  
  
@@ -230,5 +259,6 @@ public class Sol {
 			return "학번 : "+stdID+"이름 : \n"+stdName; 
 		}
 	}
+
  
  
