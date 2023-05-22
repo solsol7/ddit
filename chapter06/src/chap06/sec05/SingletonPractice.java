@@ -3,21 +3,19 @@ package chap06.sec05;
 public class SingletonPractice {
 
 	public static void main(String[] args) {
-		SingletonP s1=SingletonP.getInstance();
-		System.out.println(s1);
-		SingletonP s2=SingletonP.getInstance();
-		System.out.println(s2);
-
+		ST st1=ST.getInstance();
+		System.out.println(st1);
+		ST st2=ST.getInstance();
+		System.out.println(st2);
 	}
-
 }
 
-class SingletonP{
-	private static SingletonP single;
-	private SingletonP() {};
+class ST{
+	private static ST a=null;
+	private ST() {}
 	
-	public static SingletonP getInstance() {
-		if(single==null)single=new SingletonP();
-		return single;
+	public static ST getInstance() {
+		if(a==null) a=new ST();
+		return a;
 	}
 }
