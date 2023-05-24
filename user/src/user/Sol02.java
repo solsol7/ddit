@@ -2,7 +2,7 @@ package user;
 
 public class Sol02 { //추상클래스
 
-/*	public static void main(String[] args) {
+	public static void main(String[] args) {
 		Dog dog=new Dog();
 		dog.sound();
 		Cat cat=new Cat();
@@ -26,9 +26,9 @@ public class Sol02 { //추상클래스
 	}
 
 }
-*/
-	
-	public static void main(String[] args) {
+
+
+/*	public static void main(String[] args) {
 		method(new LoginServlet());
 		method(new FileDownloadServlet());
 	}
@@ -36,7 +36,7 @@ public class Sol02 { //추상클래스
 		servlet.service();
 	}
 }
-	
+	*/
 
 
 
