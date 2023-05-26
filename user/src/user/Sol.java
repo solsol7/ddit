@@ -260,5 +260,3 @@ class Varargs{
 		}
 	}
 
- 
- 

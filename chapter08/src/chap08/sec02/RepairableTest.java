@@ -9,7 +9,7 @@ public class RepairableTest {
 		SCV scv=new SCV();
 		
 		scv.repair(t);
-		scv.repair(d);
+		scv.repair(scv);
 //		scv.repair(m);
 	}
 
