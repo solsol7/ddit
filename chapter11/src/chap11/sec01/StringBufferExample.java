@@ -9,7 +9,7 @@ public class StringBufferExample {
 		StringBuffer sb1=new StringBuffer("홍길동");
 		StringBuffer sb2=new StringBuffer("홍길동");
 		
-		if(sb1.equals(sb2)) {		//toString 메서드가 재정의가 안되어있기 때문에 주소값으로 판단함 -> 다른 내용 출력
+		if(sb1.equals(sb2)) {		//toString 메서드가 재정의가 안되어있기 때문에 주소값으로 판단함 -> 다른 내용 출력				=>StringBuffer, StringBuilder만!! .toString 명시해줘야함
 									//내용비교하고싶으면 문자열로 바꿔줘야함(문자열로 바꾸는 메소드 -> toString)
 			System.out.println("같은내용");
 		}else {
