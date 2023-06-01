@@ -24,10 +24,11 @@ public class DbExample01 {
 	public static void main(String[] args) {
 		new DbExample01().dbConnection();// main메서드에서 static이 붙지 않은 자기 자신의 메서드를 부르는 방법 - 자기 자신의 객체를 먼저 생성시키면 static없어도
 											// 불러다 쓸 수 있음
-		int res=new DbExample01().dbInsert();
-		if(res>0) {
-			System.out.println("자료 입력 성공");
-		}
+//		int res=new DbExample01().dbInsert();
+//		if(res>0) {
+//			System.out.println("자료 입력 성공");
+//		}
+
 	}
 
 	public void dbConnection() {
