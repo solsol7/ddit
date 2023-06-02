@@ -76,7 +76,7 @@ public class JDBCUtil {	//crud쿼리를 실행할 수 있는 코드로 구성
 			conn=DriverManager.getConnection(url, user, passwd);
 			pstmt=conn.prepareStatement(sql);
 			for(int i=0; i<param.size(); i++) {			//사용되는 데이터와 입력받은 데이터를 mapping시켜야함 -sql에 존재하는 ?에 대응되는 데이터 mapping => pstmt.set타입명(?순번,데이터)
-				pstmt.setObject(i+1, param.get(i));		// ? -> 쿼리문에 사용됨 -> 오라클이기때문에 인덱스 1부터사용
+				pstmt.setObject(i+1, param.get(i));		// ? -> 쿼리문에 사용됨 -> 오라클이기때문에 인덱스 1부터사용 -> LoginDAO클래스 param에서 id 0번재, pass 1번째로 집어넣음
 														//List의 데이터타입이 Object이기때문에 setObject로 설정
 														// param.get(i)는 자바문장이기때문에 인덱스 0부터 시작
 			}
@@ -87,8 +87,10 @@ public class JDBCUtil {	//crud쿼리를 실행할 수 있는 코드로 구성
 			while(rs.next()) {	//자료가 존재하면 Map에 저장해서 반환
 				row=new HashMap<>();
 				for(int i=0; i<columnCount; i++) {
-					String key=rsmd.getColumnLabel(i);
-					Object value=rs.getObject(i);
+//					String key=rsmd.getColumnLabel(i);
+//					Object value=rs.getObject(i);
+					String key=rsmd.getColumnLabel(i+1);
+					Object value=rs.getObject(i+1);
 					row.put(key, value);
 				}
 			}
