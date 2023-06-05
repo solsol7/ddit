@@ -1,6 +1,7 @@
 package controller;
 
 import service.LoginService;
+import service.MemberService;
 
 public class Controller {
 
@@ -9,8 +10,11 @@ public class Controller {
 	}
 	
 	public void init() {
-		LoginService loginService=LoginService.getInstance();
-		loginService.login();
+		//LoginService loginService=LoginService.getInstance();
+		//loginService.login();
+		
+		MemberService memberService=MemberService.getInstance();
+		memberService.update();
 	}
 }
 

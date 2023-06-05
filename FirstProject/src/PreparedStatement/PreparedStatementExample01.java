@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import service.LoginService;
+import service.MemberService;
 
 //동적 query명령어 객체
 //  ->자바의 실행시간에 필요한 데이터를 입력받아 쿼리 실행
@@ -48,6 +49,8 @@ public class PreparedStatementExample01 {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	private int rowCount = 0;
+	
+	MemberService memberService=MemberService.getInstance();
 
 	public static void main(String[] args) {
 		PreparedStatementExample01 ps01=new PreparedStatementExample01();
@@ -108,55 +111,12 @@ public class PreparedStatementExample01 {
 		return rowCount;
 	}
 	
-	public void update() {
-		String mid ="";
-		String flag ="";
-		String pw="";
-		String jumin="";
-		int mileage =0;
-		String updateSql="UPADTE tbl_memner \n";
-		
-		while (true) {
-			System.out.print("회원 아이디 : ");
-			mid = sc.next();
-			LoginService loginService = LoginService.getInstance();
-			Map<String, Object>map = loginService.isDuplicate(mid);
-			if (map == null) {
-				System.out.println("회원정보가 없습니다");
-			}else {
-				break;
-			}
+	public void update() {	
+		int res=memberService.update();
+		if (res>0) {
+			System.out.println("자료가 정상적으로 갱신되었습니다");
+		}else {
+			System.out.println("자료 갱신에 실패했습니다");
 		}
-
-		System.out.print("비밀번호를 변경하겠습니까?(Y/N) : ");
-		flag = sc.next();
-		while(flag.equalsIgnoreCase("y")) {
-			System.out.print("비밀번호 : ");
-			pw = sc.next();
-			updateSql+="       MEM_PASS = '"+pw+"' , \n";
-			break;
-		}
-
-		System.out.print("주민번호를 변경하겠습니까?(Y/N) : ");
-		flag = sc.next();
-		while(flag.equalsIgnoreCase("y")) {
-			System.out.print("주민등록번호 : ");
-			jumin = sc.next();
-			updateSql+="       MEM_JUMIN = '"+jumin+"' , \n";
-			break;
-		}
-		
-		System.out.print("마일리지를 변경하겠습니까?(Y/N) : ");
-		flag = sc.next();
-		while(flag.equalsIgnoreCase("y")) {
-			System.out.print("마일리지 : ");
-			mileage = sc.nextInt();
-			updateSql+="       MEM_MILEAGE = "+mileage+" , \n";
-			break;
-		}		
-		int len=updateSql.length();
-		updateSql=updateSql.substring(0,len-4);
-		updateSql=updateSql+"\n WHERE MEM_ID = '"+mid+"'";
-		System.out.println(updateSql);
 	}
 }
