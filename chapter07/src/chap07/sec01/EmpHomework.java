@@ -25,34 +25,34 @@ public class EmpHomework {
 	}
 
 }
-
-class Employee{
-	private String empNo, name, dept, position;
-	
-	private int salary;
-	private double ics;
-	private int icsSalary;
-	
-	Employee(){};
-	Employee(String empNo,String name,String dept,String position){
-		this.empNo=empNo;
-		this.name=name;
-		this.dept=dept;
-		this.position=position;
-	}
-	
-	public void setSalary(int salary, double ics) {	//현재연봉, 연봉상승률
-		this.salary=(int)(salary/12*0.92);
-		this.ics=ics;
-		this.icsSalary=(int)(salary+salary*ics*0.01);
-	}
-	
-	public String printEmp() {
-		return "사번 : "+empNo+"\n이름 : "+name+"\n부서 : "+dept+"\n직급 : "+position+"\n";
-	}
-	
-	public String printSal() {
-		return "급여 : "+salary+"\n연봉인상률 : "+ics+"%"+"\n내년 연봉 : "+icsSalary;
-	}
-	
-}
+//
+//class Employee{
+//	private String empNo, name, dept, position;
+//	
+//	private int salary;
+//	private double ics;
+//	private int icsSalary;
+//	
+//	Employee(){};
+//	Employee(String empNo,String name,String dept,String position){
+//		this.empNo=empNo;
+//		this.name=name;
+//		this.dept=dept;
+//		this.position=position;
+//	}
+//	
+//	public void setSalary(int salary, double ics) {	//현재연봉, 연봉상승률
+//		this.salary=(int)(salary/12*0.92);
+//		this.ics=ics;
+//		this.icsSalary=(int)(salary+salary*ics*0.01);
+//	}
+//	
+//	public String printEmp() {
+//		return "사번 : "+empNo+"\n이름 : "+name+"\n부서 : "+dept+"\n직급 : "+position+"\n";
+//	}
+//	
+//	public String printSal() {
+//		return "급여 : "+salary+"\n연봉인상률 : "+ics+"%"+"\n내년 연봉 : "+icsSalary;
+//	}
+//	
+//}

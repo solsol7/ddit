@@ -3,6 +3,7 @@ package service;
 import java.util.Map;
 import java.util.Scanner;
 
+import controller.Controller;
 import dao.LoginDAO;
 
 public class LoginService {
@@ -23,6 +24,7 @@ public class LoginService {
 	LoginDAO dao = LoginDAO.getInstance();
 	Map<String, Object> result=null;
 	
+	
 	public void login() {
 		System.out.println("[[ ·Î±×ÀÎ ]]");
 		while (true) {
@@ -35,6 +37,7 @@ public class LoginService {
 			loginCount++;
 			if(loginCount>2) break;
 			if (result != null) {
+				Controller.sessionStorage.put("MEM_ID", id);
 				System.out.println(result.get("MEM_NAME") + "´Ô ¹Ý°©½À´Ï´Ù.");
 				break;
 			} else {
