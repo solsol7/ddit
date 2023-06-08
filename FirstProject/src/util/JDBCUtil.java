@@ -31,6 +31,37 @@ public class JDBCUtil {
 	private Statement stmt=null;
 	private ResultSet rs=null;
 	
+	public List<Map<String, Object>> selectList(String sql){
+		//SELECT * FROM tbl_member
+		List<Map<String, Object>> list=null;
+	    try {
+	    	conn=DriverManager.getConnection(url,user,passwd);
+	    	pstmt=conn.prepareStatement(sql);
+	    	rs=pstmt.executeQuery();
+	    	//컬럼의 수, 컬럼명
+	    	ResultSetMetaData rsmd=rs.getMetaData();
+	    	int columnCount=rsmd.getColumnCount();
+	    	while(rs.next()) {
+	    		if(list==null) list=new ArrayList<>();
+	    		Map<String, Object> row=new HashMap<>();
+	    		for(int i=0; i<columnCount; i++) {
+	    			String key=rsmd.getColumnLabel(i+1);
+	    	//or	String key=rsmd.getColumnName(i);
+	    			Object value=rs.getObject(i+1);
+	    			row.put(key, value);
+	    		}
+	    		list.add(row);
+	    	}
+	    }catch(SQLException e) {
+	    	e.printStackTrace();
+	    }finally {
+	    	if(rs!=null) try{rs.close();}catch(Exception e) {}
+	    	if(pstmt!=null) try{pstmt.close();}catch(Exception e) {}
+	    	if(conn!=null) try{conn.close();}catch(Exception e) {}    	
+	    }
+	    return list;
+	}
+	
 	public Map<String, Object> selectOne(String sql){
 		//정적쿼리 사용한경우
 		//sql="SELECT * FROM TBL_MEMBER WHERE MEM_ID='a001' AND 
@@ -62,39 +93,6 @@ public class JDBCUtil {
 	    return row;
 	}
 	
-	public List<Map<String, Object>> selectList(String sql){	//한 건의 자료가 아니라 여러 건의 자료를 반환받기 위해(키,밸류 쌍으로 되어있는 테이블에 들어있는 자료가 여러 행으로 구성되어있을 때) - 각 행을 하나의 맵으로 저장함 - 그 맵을 다시 리스트로 저장
-		//select * from tbl_mamber
-		//update tbl_member set mem_mileage=1000 where mem_mileage<1000  -> 한 건이 아니라 여러 건이 될 수도 있음
-		//delete from tbl_member;
-		List<Map<String, Object>> list=null;
-		
-		try {
-			conn=DriverManager.getConnection(url,user,passwd);
-			pstmt=conn.prepareStatement(sql);
-			rs=pstmt.executeQuery();
-			ResultSetMetaData rsmd=rs.getMetaData();
-			int columnCount=rsmd.getColumnCount();
-			while(rs.next()) {
-				if(list==null) list=new ArrayList<>();
-				Map<String, Object> row=new HashMap<>();
-				for(int i=0; i<columnCount; i++) {
-					String key=rsmd.getColumnLabel(i+1);
-					Object value=rs.getObject(i+1);
-					row.put(key, value);
-				}
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-	    	if(rs!=null) try{rs.close();}catch(Exception e) {}
-	    	if(pstmt!=null) try{pstmt.close();}catch(Exception e) {}
-	    	if(conn!=null) try{conn.close();}catch(Exception e) {}    				
-		}
-		
-		return list;
-		
-	}
-		
 	public Map<String, Object> selectOne(String sql, List<Object>param){
 		//sql="SELECT * FROM tbl_member WHERE mem_id = ? and
 		//  mem_pass = ? " 
@@ -130,9 +128,6 @@ public class JDBCUtil {
 		return row;
 	}
 	
-	
-	
-	
 	public int update(String sql) {
 		//update tbl_member set mem_mileage=1000 where mem_id='a00'
 		//insert into tbl_member(mem_id,mem_pass,mem_name)
@@ -152,6 +147,22 @@ public class JDBCUtil {
 		}
 		return result;
 	}
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

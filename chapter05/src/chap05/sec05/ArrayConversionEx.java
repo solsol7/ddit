@@ -39,7 +39,7 @@ class ArrayConversion{
 				rowCount=dice[i];
 			}
 		}
-		
+
 		char[][] ch=new char[rowCount][6];			//행 : 발생된 다이스 배열의 최댓값, 문자배열(*)
 		for(int i=0; i<ch[0].length; i++) {   //열
 			for(int j=0; j<dice[i]; j++) {
@@ -56,7 +56,6 @@ class ArrayConversion{
 		}
 		System.out.println("===================================");
 		System.out.println("         1    2    3    4    5    6");
-	
 
 	}
 }

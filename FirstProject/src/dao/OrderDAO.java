@@ -8,16 +8,15 @@ import util.JDBCUtil;
 public class OrderDAO {
 	private static OrderDAO instance=null;
 	private OrderDAO() {}
-	
 	public static OrderDAO getInstance() {
-		if(instance==null) instance=new OrderDAO();
+		if (instance==null)instance=new OrderDAO();
 		return instance;
 	}
 	
 	JDBCUtil jdbc=JDBCUtil.getInstance();
 	
 	public List<Map<String, Object>> selectList(){
-		String sql=" select * from tbl_prod ";
+		String sql="SELECT * FROM TBL_PROD ";
 		return jdbc.selectList(sql);
 	}
 }
