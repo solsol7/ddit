@@ -29,7 +29,7 @@ public class Running {
 
 }
 
-class Solution {
+class Solution01 {
 	public String[] solution(String[] players, String[] callings) {
         
         for(int i=0; i<callings.length; i++) {
