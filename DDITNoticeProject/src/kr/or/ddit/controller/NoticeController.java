@@ -25,7 +25,7 @@ public class NoticeController {
 		//로그인 시, 저장할 로그인 세션 정보
 		//로그인 처리가 정상적으로 진행 됐을때, login 키에 로그인 되었다는 flag값인 true를 등록해서 로그인 상태값을 유지해준다.
 		sessionStorage.put("login",false);	//로그인상태 : 미로그인
-		sessionStorage.compute("loginInfo", null);
+		sessionStorage.put("loginInfo", null);
 		
 		//최초 시스템을 시작했을 때, 처음부터 나타나야할 페이지가 필요한데
 		//그 녀석을 HOME이라는 페이지로 이동하기 위해서 HOME을 셋팅
@@ -36,7 +36,7 @@ public class NoticeController {
 			switch (view) {
 				case View.HOME:	view = home(); break;
 				case View.MAIN:	view = mainPage(); break;
-				case View.SIGNIN: view = loginService.SignIn(); break;
+				case View.SIGNIN: view = loginService.signIn(); break;
 				case View.MYPAGE: view = myPage(); break;
 				default: break;
 			}
@@ -62,9 +62,8 @@ public class NoticeController {
 		case 4: return View.FINDPW;
 		default: return View.HOME;
 		}
-		
 	}
-	
+
 	//로그인 후 사용할 메인 화면
 	private int mainPage() {
 		//직접 사용하지는 않겠지만, member라는 변수 안에 들어있는
@@ -84,7 +83,7 @@ public class NoticeController {
 		default: return View.HOME;
 		}
 	}
-	
+
 	private int myPage() {
 		Map<String, Object> member=(Map<String, Object>)NoticeController.sessionStorage.get("loginInfo");
 		

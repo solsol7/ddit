@@ -23,6 +23,6 @@ public class LoginDao {
 		String sql=" SELECT MEM_KEY, MEM_ID, MEM_PW, MEM_NAME, "+
 					" MEM_BIR, MEM_GENDER, GRADE FROM MEMBER "+
 					" WHERE MEM_ID = '"+id+"' AND MEM_PW = '"+pw+"' ";
-		return jdbc.selectOne(sql)
+		return jdbc.selectOne(sql);
 	}
 }

@@ -61,7 +61,6 @@ public class LoginService {
 			NoticeController.sessionStorage.put("login", true);
 			//로그인 인증된 회원정보를 loginInfo에 저장
 			NoticeController.sessionStorage.put("loginInfo", member);
-			
 			System.out.println(member.get("MEM_NAME")+"님 환영합니다!");
 			pageNo = View.MAIN;			//로그인이 완료되었으므로 메인화면으로 이동한다.
 		}else { //회원인증이 되지 않음 실패!!
