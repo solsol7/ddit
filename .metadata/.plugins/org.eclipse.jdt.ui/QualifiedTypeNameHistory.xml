@@ -23,11 +23,17 @@
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="service.LoginService"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="dao.MemberDAO"/>
 <fullyQualifiedTypeName name="service.MemberService"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="ddit.or.kr.StudyMiddleTest"/>
+=======
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="kr.or.ddit.controller.NoticeController"/>
+<fullyQualifiedTypeName name="kr.or.ddit.util.View"/>
+<fullyQualifiedTypeName name="kr.or.ddit.util.JDBCUtil"/>
+>>>>>>> 8da59ba53139e3a3f591b4ca2611c5a4158c2a43
 </qualifiedTypeNameHistroy>
