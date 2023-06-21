@@ -2,11 +2,17 @@
 package ddit.or.kr;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public class StudyMiddleTest {
+	
 
 	public static void main(String[] args) {
+			Scanner sc=new Scanner(System.in);
+			
 //			1. 6명의 이름을 저장할 수 있는 변수 names를 선언 및 생성하고, 주변 친구들의 이름으로 초기화한다. (5점)
 			String[] names= {"이은솔", "박민주", "김소원", "김태형", "김석호", "홍길동"};
 			
@@ -79,7 +85,12 @@ public class StudyMiddleTest {
 			
 //			14. rank의 요소에 합계를 기준으로 훈련생별 석차를 저장한다. (15점)
 			for(int i=0; i<rank.length; i++) {
-				
+				rank[i]=1;
+				for(int j=0; j<rank.length; j++) {
+					if(nameSum[i]<nameSum[j]) {
+						rank[i]++;
+					}
+				}
 			}
 			
 //			15. 위에서 생성된 변수들을 이용하여 아래와 같이 출력한다.(구분선 제외) (20점)
@@ -112,6 +123,7 @@ public class StudyMiddleTest {
 				}
 				System.out.print("  "+nameSum[i]);
 				System.out.print("\t"+nameAvg[i]);
+				System.out.print("\t  "+rank[i]);
 				System.out.println();
 			}
 			
@@ -122,6 +134,75 @@ public class StudyMiddleTest {
 //			사용자가 학생 추가를 원한다면 학생의 이름을 입력받아 학생의 일곱 과목 점수를 랜덤으로 부여합니다.
 //			학생을 계속 입력할 것 인지 물어보고(y/n). 계속 입력을 받거나 중단합니다.
 //			새로 추가된 학생의 점수를 포함하여 계산된 총 출력을 다시 보여줍니다.
+			
+			
+			
+			
+/* 폐기.... 
+			Map<String, Map<String, Integer>> nameMap=new HashMap<>();		// <이름<과목, 점수>>
+			List<String> subjectArr = new ArrayList<>();
+			for(String str : subjects) {
+				subjectArr.add(str);
+			}
+			
+			for(int i=0; i<names.length; i++) {								//배열에 있던 이름, 과목, 점수 맵에 넣기
+				Map<String, Integer> newScore = new HashMap<>();
+				for(int j=0; j<subjects.length; j++) {
+					newScore.put(subjects[j], score[i][j]);
+				}
+				nameMap.put(names[i], newScore);
+			}
+			
+			loop : while(true) {
+				System.out.print("학생을 추가하시겠습니까?(y/n) : ");
+				String str=sc.nextLine();
+				switch (str) {
+				case "y":
+					System.out.print("이름 입력 : ");
+					String name=sc.nextLine();
+					Map<String, Integer> scoreMap=new HashMap<>();
+					for(int i=0; i<subjectArr.size() ; i++) {
+						int a=(int)(Math.random()*51)+50;
+						scoreMap.put(subjectArr.get(i), a);
+					}
+					nameMap.put(name, scoreMap);
+					break;
+				case "n":
+					break loop;				
+				default:
+					System.out.println("잘못 입력하셨습니다.");
+					break;
+				}
+			}
+			
+			System.out.println("==========================================================================================");
+			System.out.print("        | ");
+			for(int i=0; i<subjectArr.size(); i++) {
+				System.out.print(subjectArr.get(i)+"\t");
+			}
+			System.out.println("| 합계        평균        석차     ");
+			System.out.println("------------------------------------------------------------------------------------------");	
+			for(String key : nameMap.keySet()) {
+				System.out.printf(key+"      |");
+				System.out.print("  ");
+				int nameSum2=0;
+				for(int i=0; i<subjectArr.size(); i++) {
+					int a=nameMap.get(key).get(subjectArr.get(i));
+					System.out.print(a+"\t");										//과목별 점수
+					nameSum2+=a;													//학생별 합계
+				}
+					double nameAvg2=(double)nameSum2/subjectArr.size();
+					nameAvg2=Double.parseDouble(String.format("%.2f", nameAvg2));		//학생별 평균
+		
+				System.out.print("  "+nameSum2);
+				System.out.print("\t"+nameAvg2);
+				//System.out.print("\t  "+rank[i]);			어라
+				System.out.println();
+			
+			}
+			
+			
+*/
 			
 //			추가2. 사용자에게 과목을 추가할 것인지 물어보고 (y/n) (+10점)
 //			사용자가 과목 추가를 원한다면 과목의 이름을 입력받아 과목을 추가하고 학생들의 점수는 랜덤 부여합니다.
@@ -173,4 +254,5 @@ public class StudyMiddleTest {
 //			메일 제목은 '[초급자바 레벨테스트] 202209 이름'으로 합니다.
 //			본문 아래에 건의사항이나 요청사항, 도움사항 등 내용을 작성하셔도 좋습니다.
 	}
+	
 }
