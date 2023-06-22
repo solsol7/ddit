@@ -135,6 +135,55 @@ public class StudyMiddleTest {
 //			학생을 계속 입력할 것 인지 물어보고(y/n). 계속 입력을 받거나 중단합니다.
 //			새로 추가된 학생의 점수를 포함하여 계산된 총 출력을 다시 보여줍니다.
 			
+			List<String> nameArr = new ArrayList<>();
+			List<List[]> stdScore = new ArrayList<>();
+			
+			for(int i=0; i<names.length; i++) {
+				nameArr.add(names[i]);
+			}
+			for(int i=0; i<score.length; i++) {
+				List[] scoreArr = new ArrayList[2];
+				for(int j=0; j<scoreArr.length; j++) {
+					scoreArr[j]=new ArrayList();
+				}
+				for(int j=0; j<subjects.length; j++) {
+					scoreArr[0].add(subjects[j]);
+				}
+				for(int j=0; j<score[i].length; j++) {
+					scoreArr[1].add(score[i][j]);
+				}
+				stdScore.add(scoreArr);
+			}
+			
+			List<Integer> sumArr= new ArrayList<>();
+			for(int i=0; i<stdScore.size(); i++){
+				int sum=0;
+				for(Object j : stdScore.get(i)[1]) {
+					sum+=(int)j;
+				}
+				sumArr.add(sum);
+			}
+			
+			int rank2=1;
+			for(int i=0; i<sumArr.size(); i++) {
+				for(int j=0; j<sumArr.size(); j++) {
+					if(sumArr.get(i)<sumArr.get(j)) {
+						rank2++;
+					}
+				}
+				sumArr.add(rank2);
+			}
+			
+			System.out.println("==========================================================================================");
+			System.out.print("        | ");
+			for(int i=0; i<stdScore.get(0)[0].size(); i++) {
+				System.out.print(stdScore.get(0)[0].get(i)+"\t");
+			}
+			System.out.println("| 합계        평균        석차     ");
+			System.out.println("------------------------------------------------------------------------------------------");	
+			
+			
+			
 			
 			
 			
