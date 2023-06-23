@@ -150,6 +150,33 @@ public class StudyMiddleTest {
 //			사용자가 과목 추가를 원한다면 과목의 이름을 입력받아 과목을 추가하고 학생들의 점수는 랜덤 부여합니다.
 //			새로 추가된 과목의 점수를 포함하여 계산된 총 출력을 다시 보여줍니다.
 			
+//			추가3. 과목 및 합계, 평균, 석차 중에 사용자가 선택하여 정렬할 수 있는 기능을 만들어보세요. (+15점)
+//			(단, 과목 및 합계, 평균은 내림차순으로 / 석차는 오름차순으로(1등이 맨 위로))
+//			(단, 정렬 기준에 * 표시를 해둔다)
+//				예시)
+//				정렬할 대상을 선택해주세요.
+//				1.국어 2.영어 3.수학 4.사회 5.과학 6.Java 7.Oracle 8.합계 9.평균 10.석차
+//				선택 >> 10
+//				====================================================================================
+//						| 국어	영어		수학		사회		과학		Java	Oracle	| 합계	평균	석차*
+//				--------┼-------------------------------------------------------┼-------------------
+//				나얼		| 74	81		97		64		59		89		74		| 538	76.86	1
+//				이수		| 99	59		84		99		55		68		72		| 536	76.57	2
+//				신용재	| 51	82		53		76		91		64		93		| 510	72.86	3
+//				김범수	| 95	55		73		64		53		68		96		| 504	72.0	4
+//				하현우	| 84	67		73		79		55		61		73		| 492	70.29	5
+//				박효신	| 80	50		55		51		63		82		85		| 466	66.57	6
+//				--------┼-------------------------------------------------------┼-------------------
+//				합계		| 483	394		435		433		376		432		493		|
+//				평균		| 80.5	65.67	72.5	72.17	62.67	72.0	82.17	|
+//				====================================================================================
+						
+
+//			본 내용을 모두 선택하여 복사하여 붙여넣고 '각 문제 아래'에 코드를 작성합니다.
+//			문제 풀이 완료 후 소스코드 전체를 복사하여 tablet7823@daum.net 으로 메일 본문에 붙여넣어 보내주세요.
+//			메일 제목은 '[초급자바 레벨테스트] 202209 이름'으로 합니다.
+//			본문 아래에 건의사항이나 요청사항, 도움사항 등 내용을 작성하셔도 좋습니다.
+			
 //			추가4. 특정 학생의 특정 과목 점수를 수정할 수 있는 기능을 만들어보세요. (+20점)
 //			예시)
 //			점수를 수정하시겠습니까? (y/n) >> y
@@ -191,7 +218,7 @@ public class StudyMiddleTest {
 			}
 			
 			loop1 : while(true) {
-				System.out.println("1.학생추가\t\t2.과목추가\t\t3.점수수정");
+				System.out.println("1.학생추가\t\t2.과목추가\t\t3.점수수정\t\t4.정렬\t\t5.시스템종료");
 				String menu=sc.nextLine();
 				switch (menu) {
 				case "1":
@@ -263,10 +290,15 @@ public class StudyMiddleTest {
 							for(int j=0; j<stdScore.get(0)[1].size(); j++)
 							if(nameArr.get(i).equals(name) && stdScore.get(i)[0].get(j).equals(subject)) {
 								stdScore.get(i)[1].set(j, newScore);
+								smt.calNPrint(nameArr, stdScore);
+								break;
+							}else {
+								System.out.println("이름 또는 과목을 잘못 입력하셨습니다.");
+								break;
 							}
+							break;
 						}
 						
-						smt.calNPrint(nameArr, stdScore);
 						break;
 					case "n":
 						break;				
@@ -276,39 +308,80 @@ public class StudyMiddleTest {
 					}
 					
 					break;
+				case "4" :
+					List<Integer> sumArr= new ArrayList<>();
+					for(int i=0; i<stdScore.size(); i++){
+						int sum=0;
+						for(Object j : stdScore.get(i)[1]) {
+							sum+=(int)j;
+						}
+						sumArr.add(sum);
+					}
+					
+					List<Integer> rankArr = new ArrayList<>();
+					for(int i=0; i<sumArr.size(); i++) {
+						int rank2=1;
+						for(int j=0; j<sumArr.size(); j++) {
+							if(sumArr.get(i)<sumArr.get(j)) {
+								rank2++;
+							}
+						}
+						rankArr.add(rank2);
+					}
+					
+					List<Integer> sumArrSub= new ArrayList<>();
+					for(int i=0; i<stdScore.get(0)[0].size(); i++) {
+						int sum=0;
+						for(int j=0; j<stdScore.size(); j++) {
+							sum+=(int)stdScore.get(j)[1].get(i);
+						}
+						sumArrSub.add(sum);
+					}	
+					
+					System.out.println("정렬할 과목을 입력해주세요.");
+					String target=sc.nextLine();
+					
+					
+					int a=0;
+					for(int i=0; i<stdScore.get(0)[0].size(); i++) {
+						if(target.equals(stdScore.get(0)[0].get(i))){
+							a=i;
+							for(int j=0; j<stdScore.size(); j++) {
+							for(int k=0; k<stdScore.size();k++) {
+								if((int)stdScore.get(j)[1].get(a)>(int)stdScore.get(k)[1].get(a)) {
+									List[] temp1=stdScore.get(j);
+									stdScore.set(j, stdScore.get(k));
+									stdScore.set(k, temp1);
+							
+									String temp2=nameArr.get(j);
+									nameArr.set(j, nameArr.get(k));
+									nameArr.set(k, temp2);
+									}
+								}
+							}
+						}
+						}
+					if(target.equals("합계")) {
+							for(int i=0; i<sumArr.size(); i++) {
+								
+							}
+					
+					}
+					if(a==0) {
+						System.out.println("잘못입력하셨습니다.");
+					}else {
+						smt.calNPrint(nameArr, stdScore);
+					}
+					break;
+				case "5" :
+					System.out.println("시스템을 종료합니다.");
+					break loop1;
 				default:
 					break;
 				}
 			}
 				
-
-
-//			추가3. 과목 및 합계, 평균, 석차 중에 사용자가 선택하여 정렬할 수 있는 기능을 만들어보세요. (+15점)
-//			(단, 과목 및 합계, 평균은 내림차순으로 / 석차는 오름차순으로(1등이 맨 위로))
-//			(단, 정렬 기준에 * 표시를 해둔다)
-//				예시)
-//				정렬할 대상을 선택해주세요.
-//				1.국어 2.영어 3.수학 4.사회 5.과학 6.Java 7.Oracle 8.합계 9.평균 10.석차
-//				선택 >> 10
-//				====================================================================================
-//						| 국어	영어		수학		사회		과학		Java	Oracle	| 합계	평균	석차*
-//				--------┼-------------------------------------------------------┼-------------------
-//				나얼		| 74	81		97		64		59		89		74		| 538	76.86	1
-//				이수		| 99	59		84		99		55		68		72		| 536	76.57	2
-//				신용재	| 51	82		53		76		91		64		93		| 510	72.86	3
-//				김범수	| 95	55		73		64		53		68		96		| 504	72.0	4
-//				하현우	| 84	67		73		79		55		61		73		| 492	70.29	5
-//				박효신	| 80	50		55		51		63		82		85		| 466	66.57	6
-//				--------┼-------------------------------------------------------┼-------------------
-//				합계		| 483	394		435		433		376		432		493		|
-//				평균		| 80.5	65.67	72.5	72.17	62.67	72.0	82.17	|
-//				====================================================================================
-						
-
-//			본 내용을 모두 선택하여 복사하여 붙여넣고 '각 문제 아래'에 코드를 작성합니다.
-//			문제 풀이 완료 후 소스코드 전체를 복사하여 tablet7823@daum.net 으로 메일 본문에 붙여넣어 보내주세요.
-//			메일 제목은 '[초급자바 레벨테스트] 202209 이름'으로 합니다.
-//			본문 아래에 건의사항이나 요청사항, 도움사항 등 내용을 작성하셔도 좋습니다.
+			
 	}
 	
 	public void calNPrint(List<String> nameArr, List<List[]> stdScore) {
@@ -376,5 +449,5 @@ public class StudyMiddleTest {
 		System.out.println("| ");
 		System.out.println("==========================================================================================");
 	}
-	
 }
+
